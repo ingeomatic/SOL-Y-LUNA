@@ -707,7 +707,7 @@ body {
 }
 
 /* ===================================
-   MODAL: INFORMACION DEL GEOPORTAL
+   MODAL: INFORMACION DEL GEOPORTAL Y OTROS
    =================================== */
 .modal {
     position: fixed;
@@ -831,6 +831,36 @@ body {
     font-family: 'Courier New', monospace;
     font-size: 11px;
     color: var(--primary-color);
+}
+
+/* ✨ NUEVO: Estilos para lista de urbanizaciones en modal Excel */
+.urb-excel-item {
+    padding: 12px;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: var(--border-radius);
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.urb-excel-item:hover {
+    background: #f8fafc;
+    border-color: var(--primary-color);
+    transform: translateX(4px);
+}
+
+.urb-excel-item i {
+    color: var(--success-color);
+    font-size: 18px;
+}
+
+.urb-excel-item span {
+    font-weight: 500;
+    color: var(--text-dark);
 }
 
 /* ===================================
