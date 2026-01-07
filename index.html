@@ -24,7 +24,7 @@
         <div class="header-content">
             <div class="logo-section">
             <img src="logo.png" alt="Logo" class="logo-image">
-            <h1 class="logo-text">URNANIZACIONES RED <span class="logo-highlight">SOL Y LUNA </span></h1>
+            <h1 class="logo-text">SOL Y LUNA <span class="logo-highlight">URBANIZACIONES </span></h1>
             </div>
             <div class="header-geocoder">
                 <div id="geocoder-container"></div>
@@ -32,6 +32,9 @@
             <div class="header-actions">
                 <button class="header-btn" id="info-btn" title="Información">
                     <i class="fas fa-info-circle"></i>
+                </button>
+                <button class="header-btn" id="export-excel-btn" title="Exportar a Excel">
+                    <i class="fas fa-file-excel"></i>
                 </button>
                 <button class="header-btn" id="user-btn" title="Usuario">
                     <i class="fas fa-user-circle"></i>
@@ -149,7 +152,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p><strong>Sistema de administración profesional - URBANIZACIONES RED SOL Y LUNA</strong></p>
+                <p><strong>Sistema de administración profesional - SOL Y LUNA URBANIZACIONES</strong></p>
                 <p>En Sol y Luna transformamos la tierra en el espacio ideal para tus proyectos. Ofrecemos lotes completamente urbanizados, 
                     listos para construir el hogar o la inversión que siempre soñaste.</p>
                 <ul>
@@ -283,6 +286,80 @@
         </div>
     </div>
 
+    <!-- ✨ NUEVO: Modal para datos de venta -->
+    <div id="venta-modal" class="modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-edit"></i> Datos de Venta</h2>
+                <button class="modal-close" id="close-venta-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="venta-form">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600; color: var(--primary-color);">
+                            <i class="fas fa-user"></i> Nombre del Cliente *
+                        </label>
+                        <input type="text" id="venta-cliente" required placeholder="Ingrese nombre completo" style="width: 100%; padding: 10px; border: 2px solid #e2e8f0; border-radius: 8px;">
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600; color: var(--primary-color);">
+                            <i class="fas fa-phone"></i> Celular del Cliente *
+                        </label>
+                        <input type="tel" id="venta-celular" required placeholder="Ej: 75211489" style="width: 100%; padding: 10px; border: 2px solid #e2e8f0; border-radius: 8px;">
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600; color: var(--primary-color);">
+                            <i class="fas fa-dollar-sign"></i> Precio de Venta (Bs) *
+                        </label>
+                        <input type="number" id="venta-precio" required placeholder="Ej: 150000" style="width: 100%; padding: 10px; border: 2px solid #e2e8f0; border-radius: 8px;">
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600; color: var(--primary-color);">
+                            <i class="fas fa-handshake"></i> Tipo de Venta *
+                        </label>
+                        <select id="venta-tipo" required style="width: 100%; padding: 10px; border: 2px solid #e2e8f0; border-radius: 8px; background: white;">
+                            <option value="">Seleccione...</option>
+                            <option value="CONTADO">CONTADO</option>
+                            <option value="CREDITO">CRÉDITO</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600; color: var(--primary-color);">
+                            <i class="fas fa-user-tie"></i> Vendedor *
+                        </label>
+                        <input type="text" id="venta-vendedor" required placeholder="Nombre del vendedor" style="width: 100%; padding: 10px; border: 2px solid #e2e8f0; border-radius: 8px;">
+                    </div>
+
+                    <button type="submit" class="popup-btn" style="margin-top: 0;">
+                        <i class="fas fa-save"></i> Guardar y Cambiar Estado
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✨ NUEVO: Modal para exportar a Excel -->
+    <div id="excel-modal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-file-excel"></i> Exportar a Excel</h2>
+                <button class="modal-close" id="close-excel-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 15px; color: var(--text-dark);">Seleccione la urbanización para exportar:</p>
+                <div id="urb-list-excel" style="max-height: 300px; overflow-y: auto;"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts externos -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
@@ -293,6 +370,9 @@
     <!-- 📄 Librerías para PDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <!-- ✨ NUEVO: Librería para exportar a Excel -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     
     <!-- Script personalizado -->
     <script src="map.js"></script>
