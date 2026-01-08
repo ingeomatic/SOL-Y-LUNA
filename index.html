@@ -142,6 +142,59 @@
         <div id="measure-result"></div>
     </div>
 
+    <!-- ✨ NUEVO: Modal de Login/Usuario -->
+    <div id="user-modal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-circle"></i> <span id="modal-title">Iniciar Sesión</span></h2>
+                <button class="modal-close" id="close-user-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario de Login -->
+                <div id="login-form-container">
+                    <form id="login-form" class="login-form">
+                        <div class="error-message" id="login-error"></div>
+                        
+                        <div class="form-group">
+                            <label for="username">
+                                <i class="fas fa-user"></i> Usuario
+                            </label>
+                            <input type="text" id="username" placeholder="Ingrese su usuario" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">
+                                <i class="fas fa-lock"></i> Contraseña
+                            </label>
+                            <input type="password" id="password" placeholder="Ingrese su contraseña" required>
+                        </div>
+
+                        <button type="submit" class="login-btn">
+                            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Información de usuario logueado -->
+                <div id="user-info-container" style="display: none;">
+                    <div class="user-info">
+                        <p>Sesión activa</p>
+                        <p class="username" id="logged-username"></p>
+                    </div>
+                    <p style="color: var(--text-medium); font-size: 13px; margin-bottom: 15px;">
+                        <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                        Tienes acceso completo a todas las funcionalidades del sistema.
+                    </p>
+                    <button class="logout-btn" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal de información -->
     <div id="info-modal" class="modal">
         <div class="modal-content">
@@ -152,7 +205,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p><strong>Sistema de administración profesional - SOL Y LUNA URBANIZACIONES</strong></p>
+                <p><strong>Sistema de administración profesional - SOL Y LUNA URBANIZACIONES </strong></p>
                 <p>En Sol y Luna transformamos la tierra en el espacio ideal para tus proyectos. Ofrecemos lotes completamente urbanizados, 
                     listos para construir el hogar o la inversión que siempre soñaste.</p>
                 <ul>
