@@ -3,12 +3,12 @@
    =================================== */
 :root {
     /* COLORES PRINCIPALES - Cambia estos valores según tu preferencia */
-    --primary-color: #001562;
+    --primary-color: #070172;
     --primary-dark: #081dd9;
     --primary-light: #ff8c00;
-    --secondary-color: #ffd20c;
-    --accent-color: #7218aa;
-    --success-color: #10b981;
+    --secondary-color: #ff9e01;
+    --accent-color: #18aa18;
+    --success-color: #bfff00;
     --warning-color: #f59e0b;
     --danger-color: #ef4444;
     
@@ -109,7 +109,9 @@ body {
 
 .logo-highlight {
     color: #fbbf24;
-    font-weight: 800;
+    font-weight: 700;
+    font-family: 'Dancing Script', cursive;
+    font-size: 28px;
 }
 
 /* Contenedor del geocoder en el header */
@@ -146,7 +148,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* ✨ NUEVO: Estilos para indicador de usuario logueado */
+/* Estilos para indicador de usuario logueado */
 .header-btn.user-logged {
     background: rgba(16, 185, 129, 0.3);
     border: 2px solid #10b981;
@@ -227,7 +229,6 @@ body {
 
 /* ===================================
    LEYENDA HORIZONTAL EN LA PARTE INFERIOR
-   ✅ MEJORADO: Responsive para móviles y tablets
    =================================== */
 .sidebar-legend {
     position: fixed;
@@ -312,7 +313,7 @@ body {
     align-items: center;
     border-bottom: 3px solid var(--primary-color);
 }
-/* TITULO DEL SIDEBAR */
+
 .sidebar-header h2 {
     font-size: 16px;
     font-weight: 600;
@@ -400,7 +401,7 @@ body {
 }
 
 /* ===================================
-   ITEMS DE CAPAS - CORREGIDO
+   ITEMS DE CAPAS
    =================================== */
 .layer-list {
     display: flex;
@@ -589,7 +590,70 @@ body {
     border-top: 4px solid var(--primary-color);
 }
 
-/* Botón de cierre del popup - MODIFICADO */
+/* ✨ NUEVO: Estilos para popup de fotos */
+.photo-popup {
+    min-width: 250px;
+    max-width: 350px;
+}
+
+.photo-popup-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-md);
+}
+
+.photo-popup-loading {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+}
+
+.photo-popup-error {
+    padding: 15px;
+    background: #fee2e2;
+    border: 1px solid #ef4444;
+    border-radius: var(--border-radius);
+    color: #dc2626;
+    font-size: 12px;
+    text-align: center;
+}
+
+.photo-popup-field {
+    margin-bottom: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.photo-popup-field:last-of-type {
+    border-bottom: none;
+}
+
+.photo-popup-field strong {
+    color: var(--primary-color);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.photo-popup-field .value {
+    color: var(--text-dark);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Botón de cierre del popup */
 .mapboxgl-popup-close-button {
     font-size: 24px !important;
     width: 32px !important;
@@ -630,7 +694,7 @@ body {
     flex-shrink: 0;
     margin-right: 10px;
 }
-/* texto del valor del campo */
+
 .popup-field .value {
     color: var(--text-dark);
     font-size: 13px;
@@ -664,7 +728,7 @@ body {
     margin-bottom: 5px;
 }
 
-/* Botones del popup EDITAR ESTADO*/
+/* Botones del popup */
 .popup-btn {
     width: 100%;
     padding: 8px;
@@ -843,7 +907,7 @@ body {
     color: var(--primary-color);
 }
 
-/* ✨ NUEVO: Estilos para lista de urbanizaciones en modal Excel */
+/* Estilos para lista de urbanizaciones en modal Excel */
 .urb-excel-item {
     padding: 12px;
     background: white;
@@ -873,7 +937,7 @@ body {
     color: var(--text-dark);
 }
 
-/* ✨ NUEVO: Estilos para modal de login */
+/* Estilos para modal de login */
 .login-form {
     display: flex;
     flex-direction: column;
@@ -992,8 +1056,6 @@ body {
 
 /* ===================================
    RESPONSIVE DESIGN
-   ===================================
-   ✅ MEJORADO: Ajustes para leyenda en móviles y tablets
    =================================== */
 
 /* Tablets - Landscape */
@@ -1002,7 +1064,6 @@ body {
         width: 260px;
     }
     
-    /* ✅ Leyenda en tablets landscape */
     .sidebar-legend {
         max-width: 85%;
         padding: 6px 12px;
@@ -1059,7 +1120,6 @@ body {
         max-width: 320px;
     }
     
-    /* ✅ Leyenda en tablets portrait - Ajuste mejorado */
     .sidebar-legend {
         max-width: 95%;
         width: auto;
@@ -1139,16 +1199,16 @@ body {
     }
     
     .header-content {
-        padding: 0 1px;
-        gap: 9px;
+        padding: 0 8px;
+        gap: 8px;
     }
     
     .logo-icon {
-        font-size: 2 px;
+        font-size: 20px;
     }
     
     .logo-text {
-        font-size: 12px;
+        font-size: 0px;
     }
     
     .header-geocoder {
@@ -1156,18 +1216,17 @@ body {
     }
     
     .header-btn {
-        width: 30px;
-        height: 30px;
-        font-size: 15 px;
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
     }
     
     .sidebar,
     .sidebar-legend {
-        width: 50%;
+        width: 85%;
         max-width: 100%;
     }
     
-    /* ✅ CORREGIDO: Leyenda ocupa todo el ancho sin scroll en móviles */
     .sidebar-legend {
         flex-direction: row;
         padding: 6px 4px;
@@ -1181,7 +1240,7 @@ body {
     }
     
     .sidebar-legend .sidebar-header {
-        display: none; /* Ocultar título en móviles para ganar espacio */
+        display: none;
     }
     
     .sidebar-legend .sidebar-content {
@@ -1307,7 +1366,7 @@ body {
 /* Móviles pequeños */
 @media (max-width: 360px) {
     .logo-text {
-        font-size: 14px;
+        font-size: 12px;
     }
     
     .sidebar,
@@ -1315,7 +1374,6 @@ body {
         width: 90%;
     }
     
-    /* ✅ Leyenda ultra compacta para móviles pequeños - Sin scroll */
     .sidebar-legend {
         padding: 5px 2px;
         gap: 2px;
@@ -1353,7 +1411,6 @@ body {
         max-width: 300px;
     }
     
-    /* ✅ Leyenda horizontal en landscape */
     .sidebar-legend {
         flex-direction: row;
         padding: 6px 10px;
