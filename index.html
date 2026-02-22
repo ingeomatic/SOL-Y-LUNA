@@ -477,9 +477,15 @@
                     
                     <!-- Panel derecho: Historial de cobros -->
                     <div>
-                        <h3 style="margin-bottom: 15px; color: var(--primary-color);">
-                            <i class="fas fa-history"></i> Historial de Cobros
-                        </h3>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 style="color: var(--primary-color);">
+                                <i class="fas fa-history"></i> Historial de Cobros
+                            </h3>
+                            <button id="imprimir-cobros-btn" onclick="imprimirCobrosPDF()" class="popup-btn" 
+                                style="margin: 0; padding: 8px 14px; font-size: 13px; background: #dc2626; display: none;">
+                                <i class="fas fa-file-pdf"></i> Imprimir PDF
+                            </button>
+                        </div>
                         <div id="cobros-historial" style="max-height: 400px; overflow-y: auto;">
                             <p style="text-align: center; color: #64748b; padding: 40px;">
                                 Seleccione un lote para ver su historial de cobros
