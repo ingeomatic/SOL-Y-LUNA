@@ -220,6 +220,7 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
+    overflow: hidden; /* ← NUEVO: evita desbordamiento */
 }
 
 /* Estado visible del sidebar */
@@ -347,6 +348,7 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 14px;
+    min-height: 0; /* ← NUEVO: fix crítico de flexbox para scroll */
 }
 
 /* Scrollbar personalizado */
@@ -1114,7 +1116,12 @@ body {
         max-width: 250px;
     }
     
-    .sidebar,
+.sidebar {
+        width: 75%;
+        max-width: 320px;
+        height: calc(100vh - var(--header-height)); /* ← asegura altura correcta */
+    }
+
     .sidebar-legend {
         width: 75%;
         max-width: 320px;
@@ -1221,11 +1228,20 @@ body {
         font-size: 14px;
     }
     
-    .sidebar,
+.sidebar {
+        width: 85%;
+        max-width: 320px;
+        height: calc(100vh - var(--header-height)); /* ← altura correcta en móvil */
+    }
+
     .sidebar-legend {
         width: 85%;
         max-width: 100%;
     }
+.sidebar-header {
+        flex-shrink: 0; /* ← NUEVO: evita que el header se comprima */
+    }
+
     
     .sidebar-legend {
         flex-direction: row;
